@@ -3,6 +3,9 @@
     --c-on-primary : #000000;
     --f-size : 16px;
 }
+body{
+    margin: 0;
+}
 html{
     background: white;
 }
