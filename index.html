@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="M1.ico" type="image/x-icon">
     <script src="brain.js"></script>
+    <script src="cookiemonster.js"></script>
 </head>
 <body>
     <form>
@@ -27,10 +28,18 @@
             <label for="background">Háttérszín:</label>
             <input type="color" name="background" id="background" value="#000000">
         </div>
-        <button id="restore" type="button">
-            Alaphelyzet
-        </button>
+        <div class="gombok">
+            <button id="restore" type="button">
+                Alaphelyzet
+            </button>
+            <button id="fav" type="button">
+                Kedvencekhez adás
+            </button>
+        </div>
     </form>
+    <div id="favourites">
+        
+    </div>
     <div class="preview">
         <h1>
             Előnézet

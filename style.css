@@ -10,7 +10,7 @@ html{
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-form, .preview{
+form, .preview, #favourites{
     width: min(100%, 30rem);
     margin-inline: auto;
 }
@@ -41,4 +41,24 @@ form [type="color"]{
 .error{
     color: rgb(209, 39, 9);
     font-size: .8em;
+}
+.gombok{
+    margin-block-start: .5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+#favourites{
+   height: 5rem;
+   overflow-y: scroll;
+}
+#favourites > *{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+#favourites > * > *{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
