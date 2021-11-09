@@ -1,62 +1,50 @@
 class Setting {
-    static AUTO_INCREMENT = 0;
-    id;
+    static list = [];
     sample;
     size;
     foreground;
     background;
 
     constructor(sample, size, foreground, background) {
-        this.id = Setting.AUTO_INCREMENT;
-        Setting.AUTO_INCREMENT++;
         this.sample = sample;
         this.size = size;
         this.foreground = foreground;
         this.background = background;
     }
 
-    static getAll() {
+    static init() {
         let back = JSON.parse(document.cookie);
-        let list = [];
+        Setting.list = [];
         for (const elem of back) {
-            list.push(new Setting(elem.sample, elem.size, elem.foreground, elem.background));
+            Setting.list.push(new Setting(elem.sample, elem.size, elem.foreground, elem.background));
         }
-        return list;
     }
 
-    static getOne(id){
-        let list = Setting.getAll()
-        let needed;
-        for (const index in list){
-            if(list[index].id == id){
-                needed = index;
-            }
-        }
-        return list[needed];
+    static getAll() {
+        return Setting.list;
     }
 
-    static deleteOne(id){
-        let list = Setting.getAll()
-        let needed;
-        for (const index in list){
-            if(list[index].id === id){
-                needed = index;
-            }
-        }
-        list.splice(needed,1);
-        document.cookie = JSON.stringify(list);
+    static getOne(id) {
+        return Setting.list[id];
+    }
+
+    static deleteOne(id) {
+        Setting.list[id] = null;
+        Setting.cookieUpdate();
     }
 
     static addOneMore(setting) {
-        let cookie = document.cookie;
-        let back;
-        if (cookie !== null && cookie !== "") {
-            back = JSON.parse(cookie);
+        Setting.list.push(setting);
+        Setting.cookieUpdate();
+    }
+
+    static cookieUpdate() {
+        let temp = [];
+        for (const i in Setting.list) {
+            if (Setting.list[i] !== null) {
+                temp.push(Setting.list[i]);
+            }
         }
-        else {
-            back = [];
-        }
-        back.push(setting);
-        document.cookie = JSON.stringify(back);
+        document.cookie = JSON.stringify(temp);
     }
 }

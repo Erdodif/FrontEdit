@@ -6,6 +6,7 @@ function init() {
     document.getElementById("background").addEventListener("change", backgroundEdited);
     document.getElementById("restore").addEventListener("click", restoreDefault);
     document.getElementById("fav").addEventListener("click",addFavourite);
+    Setting.init();
     fillFavourites();
 }
 function sampleOk(text) {
@@ -102,21 +103,23 @@ function fillFavourites(){
 
         let letrehoz = document.createElement("button");
         letrehoz.innerHTML = "Betöltés";
-        letrehoz.id = `fav_${element.id}_pluss`;
+        letrehoz.id = `fav_${i}_pluss`;
 
         let torol = document.createElement("button");
         torol.innerHTML = "Törlés";
-        torol.id = `fav_${element.id}_remove`;
+        torol.id = `fav_${i}_remove`;
 
         let temp = document.createElement("div");
         temp.classList.add("favs");
-        temp.id = `fav_${element.id}`;
+        temp.id = `fav_${i}`;
         temp.appendChild(kistemp);
         temp.appendChild(letrehoz);
         temp.appendChild(torol);
         list.appendChild(temp);
-        document.getElementById(`fav_${element.id}_pluss`).addEventListener("click",()=>setCurrent(element.id));
-        document.getElementById(`fav_${element.id}_remove`).addEventListener("click",()=>deleteCurrent(element.id));
+    }
+    for(const i in list.children){
+        document.getElementById(`fav_${i}_pluss`).addEventListener("click",()=>setCurrent(i));
+        document.getElementById(`fav_${i}_remove`).addEventListener("click",()=>deleteCurrent(i));
     }
 }
 function setCurrent(id){
