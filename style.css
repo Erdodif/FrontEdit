@@ -8,6 +8,7 @@ body{
 }
 html{
     background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 form, .preview{
     width: min(100%, 30rem);
@@ -15,7 +16,7 @@ form, .preview{
 }
 form{
     background: rgb(207, 207, 207);
-    padding-block: 1rem;
+    padding-block-end: 1rem;
     padding-inline: .6rem;
     border-radius: 1rem;
     font-size: 1.2rem;
@@ -24,8 +25,8 @@ form > div{
     display: grid;
     grid-template-columns: 1fr;
 }
-form input{
-    margin-block-end: 1rem;
+form label{
+    margin-block-start: 1rem;
 }
 form [type="color"]{
     width: 100%;
@@ -34,4 +35,10 @@ form [type="color"]{
     background: var(--c-primary);
     color: var(--c-on-primary);
     font-size: var(--f-size);
+    padding:1rem;
+    word-break: break-all;
+}
+.error{
+    color: rgb(209, 39, 9);
+    font-size: .8em;
 }

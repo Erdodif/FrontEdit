@@ -7,32 +7,36 @@
     <title>UI editor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="M1.ico" type="image/x-icon">
+    <script src="brain.js"></script>
 </head>
 <body>
     <form>
-        <div>
+        <div id="in_sample">
             <label for="sample">Mintaszöveg:</label>
-            <input type="text" name="sample" id="sample" placeholder="Mintaszöveg">
+            <input type="text" name="sample" id="sample" placeholder="Mintaszöveg" value="Árvíztűrő tükörfúrógép">
         </div>
-        <div>
+        <div id="in_size">
             <label for="size">Betűméret:</label>
-            <input type="text" name="size" id="size" placeholder="Betűméret">
+            <input type="text" name="size" id="size" placeholder="Betűméret" value="12">
         </div>
-        <div>
+        <div id="in_foreground">
             <label for="foreground">Szövegszín:</label>
             <input type="color" name="foreground" id="foreground" value="#FFFFFF">
         </div>
-        <div>
+        <div id="in_background">
             <label for="background">Háttérszín:</label>
             <input type="color" name="background" id="background" value="#000000">
         </div>
+        <button id="restore" type="button">
+            Alaphelyzet
+        </button>
     </form>
     <div class="preview">
         <h1>
             Előnézet
         </h1>
         <div id="preview">
-
+            Árvíztűrő tükörfúrógép
         </div>
     </div>
 </body>
