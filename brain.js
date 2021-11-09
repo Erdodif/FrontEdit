@@ -102,11 +102,11 @@ function fillFavourites(){
 
         let letrehoz = document.createElement("button");
         letrehoz.innerHTML = "Betöltés";
-        letrehoz.addEventListener("click",()=>setCurrent(i));
+        letrehoz.id = `fav_${i}_pluss`;
 
         let torol = document.createElement("button");
         torol.innerHTML = "Törlés";
-        torol.addEventListener("click",()=>deleteCurrent(i));
+        torol.id = `fav_${i}_remove`;
 
         let temp = document.createElement("div");
         temp.classList.add("favs");
@@ -115,6 +115,10 @@ function fillFavourites(){
         temp.appendChild(letrehoz);
         temp.appendChild(torol);
         list.appendChild(temp);
+    }
+    for(let j = 0; j < i+1; j++){
+        document.getElementById(`fav_${j}_pluss`).addEventListener("click",()=>setCurrent(j));
+        document.getElementById(`fav_${j}_remove`).addEventListener("click",()=>deleteCurrent(j));
     }
 }
 function setCurrent(id){

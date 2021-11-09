@@ -1,10 +1,14 @@
 class Setting {
+    static AUTO_INCREMENT = 0;
+    id;
     sample;
     size;
     foreground;
     background;
 
     constructor(sample, size, foreground, background) {
+        this.id = Setting.AUTO_INCREMENT;
+        Setting.AUTO_INCREMENT++;
         this.sample = sample;
         this.size = size;
         this.foreground = foreground;
@@ -21,11 +25,26 @@ class Setting {
     }
 
     static getOne(id){
-        return Setting.getAll()[id];
+        let list = Setting.getAll()
+        let needed;
+        for (const index in list){
+            if(list[index].id == id){
+                needed = index;
+            }
+        }
+        return list[needed];
     }
 
     static deleteOne(id){
-        document.cookie = JSON.stringify(Setting.getAll().splice(id,1));
+        let list = Setting.getAll()
+        let needed;
+        for (const index in list){
+            if(list[index].id === id){
+                needed = index;
+            }
+        }
+        list.splice(needed,1);
+        document.cookie = JSON.stringify(list);
     }
 
     static addOneMore(setting) {
@@ -39,6 +58,5 @@ class Setting {
         }
         back.push(setting);
         document.cookie = JSON.stringify(back);
-        alert(document.cookie);
     }
 }
