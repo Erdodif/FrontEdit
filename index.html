@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="M1.ico" type="image/x-icon">
+</head>
+<body>
+    <form>
+        <div>
+            <label for="sample">Mintaszöveg:</label>
+            <input type="text" name="sample" id="sample" placeholder="Mintaszöveg">
+        </div>
+        <div>
+            <label for="size">Betűméret:</label>
+            <input type="text" name="size" id="size" placeholder="Betűméret">
+        </div>
+        <div>
+            <label for="foreground">Szövegszín:</label>
+            <input type="color" name="foreground" id="foreground" value="#FFFFFF">
+        </div>
+        <div>
+            <label for="background">Háttérszín:</label>
+            <input type="color" name="background" id="background" value="#000000">
+        </div>
+    </form>
+    <div class="preview">
+        <h1>
+            Előnézet
+        </h1>
+        <div id="preview">
+
+        </div>
+    </div>
+</body>
+</html>
